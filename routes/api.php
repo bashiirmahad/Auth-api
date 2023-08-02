@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoListController;
 use App\Http\Controllers\UserAuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,10 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::post('/auth/register', [UserAuthController::class, 'createUser']);
 Route::post('/auth/login', [UserAuthController::class, 'loginUser']);
+
+Route::post('/todo/', [TodoListController::class, 'index']);
+Route::post('/todo/store', [TodoListController::class, 'store']);
+Route::get('/todo/edit/{id}', [TodoListController::class, 'edit']);
+Route::get('/todo/edit/{id}', [TodoListController::class, 'edit']);
+Route::post('/todo/update', [TodoListController::class, 'update']);
+Route::post('/todo/delete', [TodoListController::class, 'destroy']);
